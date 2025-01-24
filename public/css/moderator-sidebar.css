@@ -307,3 +307,63 @@
 
 
 
+/* Notification Styling */
+.home-section .notification {
+    position: fixed;
+    bottom: 5%;
+    left: 79%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 500px;
+    z-index: 1050;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s, fadeOut 0.5s 5s forwards; /* Adding forwards to preserve the final state */
+    visibility: visible; /* Make sure it's initially visible */
+}
+
+/* Success Notification */
+.home-section .alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* Error Notification */
+.home-section .alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.home-section .notification .btn-close {
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Fade in/out animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) translateX(-50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) translateX(-50%);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0) translateX(-50%);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px) translateX(-50%);
+        visibility: hidden; /* Ensures the element is hidden after the fade out */
+    }
+}

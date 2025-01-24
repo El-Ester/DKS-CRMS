@@ -1,0 +1,229 @@
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #98e5df;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 50%;  /* Set a fixed width for the container */
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0px;
+    padding: 20px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;  /* Stack the content vertically */
+    align-items: center;     /* Center the content horizontally */
+    padding: 30px;
+}
+
+.header {
+  background-color: #0c7169;
+  height: 50px;
+}
+
+.footer {
+  background-color: #08544e;
+  height: 30px;
+}
+
+/* Form Section */
+/* Logo */
+.logo {
+    display: block;
+    margin: 0 auto 15px auto;
+    width: 300px;
+    margin-top: 20px;
+}
+
+.text1 h2{
+    font-size: 20px;
+    text-align: center;
+}
+
+.text2 h2{
+    font-size: 18px;
+    text-align: center;
+}
+
+.text2 h2 i{
+    font-size: 14px;
+    text-align: center;
+}
+
+label {
+    display: block;          /* Makes the label take up the full width */
+    margin-bottom: 8px;      /* Adds space between label and input */
+    font-weight: bold;
+    text-align: center;        /* Aligns label text to the left */
+    font-size: medium;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="password"] {
+    width: 100%;             /* Makes the input fill the width of the container */
+    padding: 10px;
+    margin-bottom: 15px;     /* Adds space below the input */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;         /* Adjusts font size inside the input */
+    text-align: center;
+}
+
+label i{
+    display: block;          /* Makes the label take up the full width */
+    margin-bottom: 8px;      /* Adds space between label and input */
+    font-weight: bold;
+    text-align: center;        /* Aligns label text to the left */
+    font-size: small;
+    color: gray;
+}
+
+
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Submit Button */
+.btn-register {
+    display: block;
+    width: 50%;
+    padding: 8px 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition-duration: 0.3s;
+
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Success Message */
+p {
+    color: green;
+    font-size: 1rem;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Form Section */
+form {
+    display: block;
+    width: 50%;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .logo {
+        width: 200px;
+    }
+
+    input {
+        font-size: 0.9rem;
+    }
+
+    button {
+        font-size: 1rem;
+    }
+}
+
+
+/* Notification Styling */
+.home-section .notification {
+    position: fixed;
+    bottom: 5%;
+    left: 79%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 500px;
+    z-index: 1050;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s, fadeOut 0.5s 5s forwards; /* Adding forwards to preserve the final state */
+    visibility: visible; /* Make sure it's initially visible */
+}
+
+/* Success Notification */
+.home-section .alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* Error Notification */
+.home-section .alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.home-section .notification .btn-close {
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Fade in/out animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) translateX(-50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) translateX(-50%);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0) translateX(-50%);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px) translateX(-50%);
+        visibility: hidden; /* Ensures the element is hidden after the fade out */
+    }
+}

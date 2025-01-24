@@ -1,132 +1,67 @@
-@include('components.header')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Job Application</title>
+    <link rel="stylesheet" href="{{ asset('css/userLogin.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
 
-<style>
-    body {
-        background-color: #f4f7fa;
-        /* Light gray background for a professional look */
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        /* Professional font */
-    }
+<!-- "OBE System" Title Above the Login Container -->
 
-    .container {
-        background-color: #ffffff;
-        /* Solid white background for clarity */
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        /* Refined shadow for depth */
-        padding: 40px;
-        margin-top: 2%;
-        margin-bottom: 2%;
-    }
+<body>
+    <!-- Logo -->
+    <img src="{{ asset('images/unissalogo.png') }}" alt="Logo" class="logo">
 
-    .form-control {
-        border: 1px solid #ccd1d9;
-        /* Subtle border */
-        border-radius: 4px;
-        height: 45px;
-        padding: 10px;
-    }
 
-    .form-control:focus {
-        border-color: #5d9cec;
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(93, 156, 236, .6);
-    }
-
-    .btn-primary {
-        background-color: #337ab7;
-        border: none;
-        border-radius: 4px;
-        padding: 10px 15px;
-        font-size: 16px;
-        color: white;
-        transition: background-color 0.3s;
-    }
-
-    .btn-primary:hover {
-        background-color: #286090;
-    }
-
-    label {
-        font-weight: 600;
-        color: #333;
-    }
-
-    .invalid-feedback,
-    .alert-danger {
-        color: #a94442;
-        background-color: #f2dede;
-        border-color: #ebccd1;
-        padding: 10px;
-        border-radius: 4px;
-    }
-
-    .header-text {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    .header-text h1 {
-        font-size: 24px;
-        color: #333;
-    }
-
-    .header-text p {
-        font-size: 16px;
-        color: #666;
-    }
-</style>
-
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8 col-sm-10 col-12">
-            <div class="header-text">
-                <h1>Welcome to HRMS Portal</h1>
-                <p>Human Resources Management System: Streamlining HR processes for better efficiency.</p>
-            </div>
-
-            <div class="alert alert-danger" id="error-alert" style="display: none;">
-                <strong>Error!</strong> Incorrect username or password.
-            </div>
-
-            <form id="login-form" action="{{ route('auth') }}" method="post">
-                @csrf
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" class="form-control @error('username') is-invalid @enderror" id="username"
-                        name="username" value="{{ old('username') }}">
-                    @error('username')
-                        <div id="validationServer03Feedback" class="invalid-feedback">
-                            {{ $message }}.
-                        </div>
-                    @enderror
-                </div>
-
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control @error('password') is-invalid @enderror" id="password"
-                        name="password">
-                    @error('password')
-                        <div id="validationServer03Feedback" class="invalid-feedback">
-                            {{ $message }}.
-                        </div>
-                    @enderror
-                </div>
-                <button type="submit" class="btn btn-primary mt-3 w-100">Login</button>
-                <div class="header-text mt-4">
-                    <p>Demo Moderator Account <br>
-                        Username : moderator <br>
-                        Password : moderator</p>
-                </div>
-            </form>
-
-            @if ($errors->has('credentials'))
-                <div class="alert alert-danger mt-4">
-                    {{ $errors->first('credentials') }}
-                </div>
-            @endif
-
-        </div>
+    <!-- OBE Titles -->
+    <div class="obe1-title">
+        Human Resource e-Recruitment System
     </div>
-</div>
+    <div class="obe-title">
+        Human Resource Department
+    </div>
 
-@include('components.footer')
+    <!-- Login Form Container -->
+    <div class="container">
+        <h1>Login</h1>
+        <form action="{{ url('login') }}" method="POST">
+            @csrf
+
+            <label>Username</label>
+            <div><input type="text" class="form-control" id="username" name="username" placeholder="Username" required></div>
+
+            <label>Password</label>
+            <div><input type="password" class="form-control" id="password" name="password" placeholder="Password" required></div>
+
+            <button type="submit" class="btn-primary">Login</button>
+
+            <!-- Job Seeker Login Link -->
+            <div class="job-seeker-login">
+                <p>Are you a Job Seeker? <a href="{{ route('candidate.login') }}">Login here</a></p>
+            </div>
+
+            <p><a href="{{ route('frontpage.frontpage') }}">Office of Human Resources</a></p>
+
+        </form>
+
+        @if ($errors->has('credentials'))
+        <div class="alert alert-danger mt-4">
+            {{ $errors->first('credentials') }}
+        </div>
+    @endif
+    </div>
+
+    @if(session('error'))
+    <div class="alert alert-danger">
+        <strong>Error!</strong> {{ session('error') }}
+    </div>
+@endif
+
+
+</div>
+</body>
+</html>

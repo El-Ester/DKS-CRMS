@@ -1,0 +1,237 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 5px 20px;
+    border-bottom: 1px solid #ccc;
+}
+.header .menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.header .name-job {
+    display: flex;
+    align-items: center;
+
+}
+
+.header .name-job i{
+    font-size: 20px;
+    color: #000000;
+    margin-left: 1000px;
+}
+
+.header .name-job .profile_name {
+    font-size: 14px;
+    margin-left: 8px;
+}
+
+.header .sign-out {
+    display: flex;
+    align-items: center;
+}
+
+.header .sign-out i{
+    font-size: 18px;
+    color: #007bff;
+    cursor: pointer;
+}
+
+.home-section .bx-menu {
+    position: absolute; /* Use absolute positioning relative to its container */
+    top: -33px; /* Adjust top position */
+    left: 20px; /* Adjust left position */
+    font-size: 24px; /* Ensure consistent size */
+    z-index: 1000; /* Ensure it stays on top */
+    cursor: pointer; /* Show pointer cursor */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.home-section {
+    padding: 20px;
+}
+
+        .container {
+            font-family: 'Poppins';
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .container .nav-tabs{
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        h1, h3 {
+            color: #565656;
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        .container .btn-primary1 {
+            background-color: #13dc31;
+            border-color: #449f52;
+            margin-top: 20px;
+            border-radius: 10px; /* Makes the button oval */
+            padding: 4px 10px; /* Adds some padding to make it bigger and more oval */
+            color: rgb(0, 0, 0); /* Text color */
+            display: inline-flex; /* Ensures the icon and text align horizontally */
+            align-items: center; /* Vertically center the icon and text */
+            justify-content: center; /* Horizontally center the icon and text */
+            font-size: 12px;
+        }
+
+        .container .btn-primary1 i {
+            margin-right: 8px; /* Adds some space between the icon and text */
+        }
+
+
+        .container .btn-primary1:hover {
+            background-color: #449f52;
+        }
+
+/*                      TABLE SECTION                     */
+
+        table {
+            margin-top: 20px;
+        }
+
+
+        .container table th {
+            background-color: #bfbfbf;
+            color: rgb(0, 0, 0);
+            text-align: left;
+            font-size: 14px;
+        }
+
+       .container table td {
+            text-align: left;
+            font-size: 12px;
+        }
+
+        .alert-success {
+            margin-top: 10px;
+            padding: 10px;
+            color: #155724;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 4px;
+        }
+
+        table .btn-primary {
+            background-color: #007bff;
+            margin-bottom: 5px;
+            margin-top: 5px;
+            padding: 4px 10px;
+            font-size: 12px;
+        }
+
+        table .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        table .btn-danger {
+            background-color: #dc3545;
+            margin-bottom: 5px;
+            margin-top: 5px;
+            padding: 4px 10px;
+            font-size: 12px;
+        }
+
+        table .btn-danger:hover {
+            background-color: #bd2130;
+        }
+
+        table .btn-warning {
+            background-color: #ffc107;
+            margin-bottom: 5px;
+            margin-top: 5px;
+            padding: 4px 10px;
+            font-size: 12px;
+        }
+
+        table .btn-warning:hover {
+            background-color: #e0a800;
+        }
+
+        table .btn-secondary{
+            background-color: rgb(5, 144, 0);
+            margin-bottom: 5px;
+            margin-top: 5px;
+            font-size: 12px;
+        }
+
+        table .btn-secondary:hover{
+            background-color: #155724
+        }
+
+
+/* Notification Styling */
+.home-section .notification {
+    position: fixed;
+    bottom: 5%;
+    left: 79%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 500px;
+    z-index: 1050;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s, fadeOut 0.5s 5s forwards; /* Adding forwards to preserve the final state */
+    visibility: visible; /* Make sure it's initially visible */
+}
+
+/* Success Notification */
+.home-section .alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* Error Notification */
+.home-section .alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.home-section .notification .btn-close {
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Fade in/out animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) translateX(-50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) translateX(-50%);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0) translateX(-50%);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px) translateX(-50%);
+        visibility: hidden; /* Ensures the element is hidden after the fade out */
+    }
+}

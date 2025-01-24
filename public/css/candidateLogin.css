@@ -1,0 +1,222 @@
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #98e5df;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 80%;
+    max-width: 1000px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0px;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Header */
+.header {
+    background-color: #0c7169;
+    color: white;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Content Container */
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.form-section, .info-section {
+    width: 48%;
+    text-align: left;
+}
+
+/* Form Section */
+.logo {
+    display: block;
+    margin: 0 auto 15px auto;
+    width: 500px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: center;
+    font-size: medium;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.btn-login {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition-duration: 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #218838;
+}
+
+.forgot-password {
+    display: block;
+    text-align: left;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.register-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.btn-register {
+    display: block;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition-duration: 0.3s;
+}
+
+.btn-register:hover {
+    background-color: #0056b3;
+}
+
+h3{
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Scrollable Info Section */
+.info-section h3{
+    font-size: 20px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.info-content {
+    max-height: 400px; /* Fixed height to trigger scrolling */
+    overflow-y: auto; /* Vertical scrollbar only when content overflows */
+    padding-right: 10px; /* Add space for scrollbar */
+    border: 1px solid #ddd; /* Optional border for clarity */
+    border-radius: 0px;
+    background-color: #f9f9f9; /* Light background for the container */
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+/* Optional scrollbar styling for modern browsers */
+.info-section::-webkit-scrollbar {
+    width: 8px;
+}
+
+.info-section::-webkit-scrollbar-thumb {
+    background-color: #aaa; /* Scrollbar color */
+    border-radius: 0px; /* Rounded edges */
+}
+
+.info-section::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Track background color */
+}
+
+
+/* Footer */
+.footer {
+    background-color: #08544e;
+    color: white;
+    padding: 10px;
+    font-size: 12px;
+}
+
+
+/* Notification Styling */
+.home-section .notification {
+    position: fixed;
+    bottom: 5%;
+    left: 79%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 500px;
+    z-index: 1050;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s, fadeOut 0.5s 5s forwards; /* Adding forwards to preserve the final state */
+    visibility: visible; /* Make sure it's initially visible */
+}
+
+/* Success Notification */
+.home-section .alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* Error Notification */
+.home-section .alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.home-section .notification .btn-close {
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Fade in/out animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) translateX(-50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) translateX(-50%);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0) translateX(-50%);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px) translateX(-50%);
+        visibility: hidden; /* Ensures the element is hidden after the fade out */
+    }
+}

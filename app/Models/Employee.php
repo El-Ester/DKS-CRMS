@@ -4,86 +4,43 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 
 class Employee extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
 
     protected $fillable = [
         'first_name',
         'last_name',
-        'national_id',
-        'nationality',
-        'gender',
-        'date_of_birth',
+        'position',
         'email',
         'phone_number',
-        'address',
-        'salary',
-        'emergency_contact',
-        'cv',
-        'image',
-        'position_id', // Add position_id to fillable array
-        'training',
-        'start_date'
+        'kpi',
     ];
-
-    public function position()
-    {
-        return $this->belongsTo(Position::class);
-    }
-
-
-    public function vacations()
-    {
-        return $this->hasMany(Vacation::class);
-    }
-
-    public function schedule()
-    {
-        return $this->belongsTo(Schedule::class);
-    }
-
-    /**
-     * Check if the employee is currently on vacation.
-     */
-    public function isOnVacation()
-    {
-        $today = now()->toDateString();
-        return $this->vacations()
-            ->where('start_date', '<=', $today)
-            ->where('end_date', '>=', $today)
-            ->exists();
-    }
-
 
     protected static function boot()
     {
         parent::boot();
 
-        // Generate UUID before creating a new record
         static::creating(function ($model) {
             $model->uuid = (string) Str::uuid();
         });
-
     }
 
-    /**
-     * Check if the employee has an upcoming vacation.
-     *
-     * @return bool
-     */
-    public function hasUpcomingVacation()
+    public function candidate()
     {
-        $today = now()->toDateString(); // Gets today's date
-
-        // Check for vacations that start after today
-        return $this->vacations()
-            ->where('start_date', '>', $today) // Vacations that start after today
-            ->exists();
+        return $this->belongsTo(Candidate::class);
     }
-
-
 }
+
+// use App\Models\Employee;
+
+// Employee::create([
+//     'first_name' => 'Qwerty',
+//     'last_name' => 'Doe',
+//     'position' => 'Software Engineer',
+//     'email' => 'qwert@example.com',
+//     'phone_number' => '1234567890',
+//     'kpi' => 80.5, // Example KPI
+// ]);

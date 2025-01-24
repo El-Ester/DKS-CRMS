@@ -19,7 +19,7 @@
     left: 0;
     height: 100%;
     width: 260px;
-    background: #11101d;
+    background: #64acd9;
     z-index: 100;
     transition: all 0.5s ease;
 }
@@ -32,27 +32,54 @@
     height: 60px;
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: center; /* Vertically center items */
+    justify-content: center; /* Horizontally center items */
 }
+
 
 .sidebar .logo-details i {
     font-size: 30px;
-    color: #fff;
     height: 50px;
     min-width: 78px;
     text-align: center;
     line-height: 50px;
 }
 
-.sidebar .logo-details .logo_name {
-    font-size: 22px;
-    color: #fff;
+.sidebar .logo-details .logo-class{
+    font-size: 10px;
+    height: 70px;
+    min-width: 65px;
+    text-align: center;
+    line-height: 50px;
+    margin-top: 40px;
+}
+
+
+/* .sidebar.close .logo-details .logo-class{
+    display: 1px;
+    transition: all 0.4s ease;
+} */
+
+.sidebar.close .logo-details .logo-class{
+    transition-delay: 0s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+.sidebar .logo_name {
+    font-size: 12px;
+    display: flex;
+    align-items: center; /* Vertically center items */
+    justify-content: center; /* Horizontally center items */
+    color: #000000;
     font-weight: 600;
     transition: 0.3s ease;
     transition-delay: 0.1s;
+    margin-top:  30px;
 }
 
-.sidebar.close .logo-details .logo_name {
+.sidebar.close .logo_name {
     transition-delay: 0s;
     opacity: 0;
     pointer-events: none;
@@ -79,7 +106,7 @@
 }
 
 .sidebar .nav-links li:hover {
-    background: #1d1b31;
+    background: #aeaeae;
 }
 
 .sidebar .nav-links li .iocn-link {
@@ -89,7 +116,7 @@
 }
 
 .sidebar.close .nav-links li .iocn-link {
-    display: block
+    display: block;
 }
 
 .sidebar .nav-links li i {
@@ -97,9 +124,14 @@
     min-width: 78px;
     text-align: center;
     line-height: 50px;
-    color: #fff;
-    font-size: 20px;
+    color: #000000;
+    font-size: 18px;
     cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sidebar.close .nav-links li i {
+    transform: translateY(-60px); /* Moves the icon up */
     transition: all 0.3s ease;
 }
 
@@ -118,9 +150,9 @@
 }
 
 .sidebar .nav-links li a .link_name {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 400;
-    color: #fff;
+    color: #000000;
     transition: all 0.4s ease;
 }
 
@@ -141,7 +173,7 @@
 }
 
 .sidebar .nav-links li .sub-menu a {
-    color: #fff;
+    color: #010000;
     font-size: 15px;
     padding: 5px 0;
     white-space: nowrap;
@@ -178,7 +210,7 @@
 }
 
 .sidebar.close .nav-links li .sub-menu .link_name {
-    font-size: 18px;
+    font-size: 15px;
     opacity: 1;
     display: block;
 }
@@ -199,7 +231,7 @@
 .one {
     width: 80%;
     margin-left: 10%;
-    background-color: black;
+    background-color: rgb(255, 255, 255);
     height: 400px;
 }
 
@@ -210,7 +242,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #1d1b31;
+    background: #3f67b7;
     padding: 12px 0;
     transition: all 0.5s ease;
 }

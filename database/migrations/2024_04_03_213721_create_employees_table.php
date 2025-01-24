@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->uuid('uuid')->unique()->default(DB::raw('UUID()'));
+            $table->char('uuid', 36)->unique();
             $table->string('first_name');
             $table->string('last_name');
             $table->string('national_id');
@@ -24,14 +24,13 @@ return new class extends Migration {
             $table->string('address');
             $table->decimal('salary', 10, 2);
             $table->string('emergency_contact');
-            $table->string('cv')->nullable()->default(null);
-            $table->string('image')->nullable()->default(null);
-            $table->unsignedBigInteger('position_id'); // Define foreign key column
+            $table->string('cv')->nullable();
+            $table->string('image')->nullable();
+            $table->foreignId('position_id')->constrained();
             $table->smallInteger('training')->default(0);
-            $table->date("start_date")->nullable();
+            $table->date('start_date')->nullable();
             $table->softDeletes();
             $table->timestamps();
-            $table->foreign('position_id')->references('id')->on('positions')->onDelete('cascade');
         });
     }
 

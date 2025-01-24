@@ -1,0 +1,302 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 5px 20px;
+    border-bottom: 1px solid #ccc;
+}
+.header .menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.header .name-job {
+    display: flex;
+    align-items: center;
+
+}
+
+.header .name-job i{
+    font-size: 20px;
+    color: #000000;
+    margin-left: 1000px;
+}
+
+.header .name-job .profile_name {
+    font-size: 14px;
+    margin-left: 8px;
+}
+
+.header .sign-out {
+    display: flex;
+    align-items: center;
+}
+
+.header .sign-out i{
+    font-size: 18px;
+    color: #007bff;
+    cursor: pointer;
+}
+
+.home-section .bx-menu {
+    position: absolute; /* Use absolute positioning relative to its container */
+    top: -33px; /* Adjust top position */
+    left: 20px; /* Adjust left position */
+    font-size: 24px; /* Ensure consistent size */
+    z-index: 1000; /* Ensure it stays on top */
+    cursor: pointer; /* Show pointer cursor */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.home-section {
+    padding: 20px;
+}
+
+/* General Styles */
+
+.container {
+    padding: 20px;
+    max-width: 900px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.container button.close {
+    position: absolute;
+    top: 30px; /* Distance from the top */
+    right: 40px; /* Distance from the right */
+    background-color: transparent; /* Transparent background */
+    border: none; /* No border */
+    color: #000; /* Black color for the icon */
+    font-size: 24px; /* Size of the icon */
+    cursor: pointer; /* Pointer cursor on hover */
+    z-index: 900; /* Ensures the button is on top */
+}
+
+
+.container button.close:hover {
+    color: #FF0000; /* Red color on hover */
+}
+/* Card Styles */
+.card {
+    /* border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); */
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background-color: #007bff;
+    color: white;
+    font-size: 18px;
+    font-weight: 550;
+    padding: 15px;
+    border-radius: 10px 10px 0 0;
+}
+
+.card-body {
+    background-color: white;
+    padding: 20px;
+    border-radius: 0 0 10px 10px;
+}
+
+.card-body p {
+    font-size: 12px;
+    line-height: 1.3;
+    color: #333;
+}
+
+.card-body h5 {
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+/* Table Styling */
+.table {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.container .table th {
+    background-color: #64acd9;
+    color: #000000;
+    text-align: justify;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px;
+}
+
+.table td {
+    text-align: justify;
+    padding: 10px;
+    font-size: 14px;
+    color: #555;
+    vertical-align: middle;
+}
+
+.table .btn-sm {
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.table .btn-warning {
+    background-color: #ffc107;
+    border: none;
+    color: #fff;
+}
+
+.table .btn-warning:hover {
+    background-color: #e0a800;
+}
+
+.table .btn-danger {
+    background-color: #dc3545;
+    border: none;
+    color: #fff;
+}
+
+.table .btn-danger:hover {
+    background-color: #c82333;
+    color: #000;
+}
+/* Custom Card Styling */
+.family-detail {
+    padding: 15px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.family-detail p {
+    font-size: 14px;
+}
+
+.family-detail hr {
+    border-top: 1px solid #ccc;
+}
+
+/* Button Styles */
+.btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Layout and Spacing */
+.home-section {
+    padding: 20px;
+}
+
+.container h1 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .home-section {
+        margin-left: 0;
+    }
+
+    .container {
+        margin-top: 20px;
+    }
+
+    .card-header {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .card-body p {
+        font-size: 13px;
+    }
+
+    .card-body h5 {
+        font-size: 14px;
+    }
+
+    .table th, .table td {
+        font-size: 12px;
+    }
+
+    .family-detail p {
+        font-size: 12px;
+    }
+}
+
+/* Notification Styling */
+.home-section .notification {
+    position: fixed;
+    bottom: 5%;
+    left: 79%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 500px;
+    z-index: 1050;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s, fadeOut 0.5s 5s forwards; /* Adding forwards to preserve the final state */
+    visibility: visible; /* Make sure it's initially visible */
+}
+
+/* Success Notification */
+.home-section .alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* Error Notification */
+.home-section .alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.home-section .notification .btn-close {
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Fade in/out animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) translateX(-50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) translateX(-50%);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0) translateX(-50%);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px) translateX(-50%);
+        visibility: hidden; /* Ensures the element is hidden after the fade out */
+    }
+}
+
+
