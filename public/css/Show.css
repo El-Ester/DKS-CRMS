@@ -1,0 +1,123 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+}
+
+.home-section {
+    padding: 20px;
+}
+
+.home-section h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    padding: 30px;
+}
+
+.card .row label.fw-bold {
+    color: #000000;
+    font-size: 1.05rem;
+}
+
+.card .row .col-sm-9 {
+    font-size: 1.05rem;
+    color: #0080ff;
+}
+
+.d-flex.gap-2 {
+    margin-top: 25px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 10px 25px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.home-section  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+    padding: 0.4rem 0.8rem;
+    font-size: 14px;
+    font-weight: 900;
+    border-radius: 0.5rem;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.home-section .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+    padding: 0.4rem 0.8rem;
+    font-size: 14px;
+    font-weight: 900;
+    border-radius: 0.5rem;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+.alert {
+    border-radius: 8px;
+    margin-bottom: 25px;
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .home-section {
+        padding-left: 0;
+        padding-top: 80px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .card .row label.fw-bold,
+    .card .row .col-sm-9 {
+        font-size: 1rem;
+        text-align: left;
+    }
+
+    .d-flex.gap-2 {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

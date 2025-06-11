@@ -1,117 +1,72 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
     public function redirectToDashboard()
-{
-    $role = Auth::user()->role;
-
-    switch ($role) {
-        case 'hrd':
-            return redirect()->route('hrd.dashboard');
-
-        case 'jppstm':
-            return redirect()->route('jppstm.dashboard');
-
-        case 'applicant':
-            return redirect()->route('applicant.dashboard');
-
-        case 'faculty/centre':
-            return redirect()->route('facultyCentre.dashboard');
-
-        case 'department/unit':
-            return redirect()->route('departmentUnit.dashboard');
-
-        case 'board members':
-            return redirect()->route('boardMembers.dashboard');
-
-        case 'assistant registrar':
-            return redirect()->route('assistantRegistrar.dashboard');
-
-        default:
-            abort(403, 'Unauthorized action.');
-    }
-}
-
-
-    public function hrdDashboard()
     {
-        return view('dashboards.hrd');
+        $role = Auth::user()->role;
+
+        switch ($role) {
+            case 'Admin':
+                return redirect()->route('systemAdmin.dashboard');
+
+            case 'DKS Staff':
+                return redirect()->route('DKSstaff.dashboard');
+
+            case 'Service Engineer':
+                return redirect()->route('engineer.dashboard');
+
+            default:
+                abort(403, 'Unauthorized action.');
+            }
     }
 
-    public function jppstmDashboard()
+        public function index()
     {
-        return view('dashboards.jppstm');
-    }
+        // Chart 1: Case Status Distribution
+        $caseStatuses = Issue::select('status_id', DB::raw('count(*) as total'))
+            ->groupBy('status_id')
+            ->with('status')
+            ->get();
 
-    public function applicantDashboard()
-    {
-        // Fetch applications associated with the authenticated user
-        // $applications = Application::where('user_id', Auth::id())->get();
+        $statusLabels = $caseStatuses->pluck('status.status_title');
+        $statusCounts = $caseStatuses->pluck('total');
 
-        // Return the view with the applications data
-        // return view('dashboards.applicant', compact('applications'));
-    }
+        // Chart 2: Monthly Case Submissions
+        $monthlyCases = Issue::select(
+                DB::raw("DATE_FORMAT(created_at, '%b') as month"),
+                DB::raw('count(*) as total')
+            )
+            ->groupBy(DB::raw("DATE_FORMAT(created_at, '%m')"))
+            ->orderBy(DB::raw("DATE_FORMAT(created_at, '%m')"))
+            ->get();
 
+        $monthLabels = $monthlyCases->pluck('month');
+        $monthCounts = $monthlyCases->pluck('total');
 
+        // Chart 3: Cases by User Role
+        $casesByRole = User::select('user_role', DB::raw('count(issues.issue_id) as total'))
+            ->leftJoin('issues', 'users.user_id', '=', 'issues.user_id')
+            ->leftJoin('roles', 'users.user_role', '=', 'roles.role_id')
+            ->groupBy('user_role')
+            ->with('role')
+            ->get();
 
-    public function facultyCentreDashboard()
-    {
-        return view('dashboards.facultyCentre');
-    }
+        $roleLabels = $casesByRole->map(fn($u) => $u->role->role_title ?? 'Unknown');
+        $roleCounts = $casesByRole->pluck('total');
 
-    public function departmentUnitDashboard()
-    {
-        return view('dashboards.departmentUnit');
-    }
-
-    public function boardMembersDashboard()
-    {
-        return view('dashboards.boardMembers');
-    }
-
-    public function assistantRegistrarDashboard()
-    {
-        return view('dashboards.assistantRegistrar');
-    }
-
-
-
-
-
-    public function addJobPost(Request $request)
-    {
-        Job::create($request->all());
-        return back()->with('success', 'Job posted successfully.');
-    }
-
-    public function hrd()
-    {
-        return view('dashboards.hrd');
-    }
-
-    public function jppstm()
-    {
-        return view('dashboards.jppstm');
+        return view('systemAdmin.dashboard', compact(
+            'statusLabels', 'statusCounts',
+            'monthLabels', 'monthCounts',
+            'roleLabels', 'roleCounts'
+        ));
     }
 
 
-
-
-    public function someAction()
-    {
-        // Your action logic
-
-        // Set success message in session
-        session()->flash('success', 'Your action was successful!');
-
-        return redirect()->route('your.route');
-    }
-
-
-    // Add other dashboard methods for roles...
 }

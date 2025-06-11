@@ -5,55 +5,59 @@ namespace App\Http\Controllers\auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
-    // This method renders the login view
-    public function index()
-    {
-        return view('auth.login', ['title' => 'Login']);
-    }
-
-    // This method processes the login form
     public function auth(Request $request)
     {
-        // Validate incoming data
         $request->validate([
-            'username' => 'required|min:4',
-            'password' => 'required|min:4'
+            'user_email' => 'required|email',
+            'user_password' => 'required|string'
         ]);
 
-        $credentials = $request->only('username', 'password');
+        // Find user by user_email column
+        $user = User::where('user_email', $request->input('user_email'))->first();
 
-        try {
-            // Attempt login
-            if (Auth::attempt($credentials)) {
-                $role = auth()->user()->role;
+        if (!$user) {
+            return back()->withErrors([
+                'credentials' => 'Invalid email or password.'
+            ]);
+        }
 
-                // Redirect user based on their role
-                switch ($role) {
-                    case 'hrd':
-                        return redirect()->route('hrd.dashboard');
-                    case 'jppstm':
-                        return redirect()->route('jppstm.dashboard');
-                    // Add other roles as needed
-                    default:
-                        Auth::logout();
-                        return redirect()->route('login')->with('error', 'Unauthorized role.');
-                }
-            } else {
-                return back()->withErrors(['credentials' => 'Invalid username or password.']);
-            }
-        } catch (\Exception $e) {
-            return back()->withErrors(['credentials' => 'An error occurred during login.']);
+        // Verify password manually since your password field is user_password (hashed)
+        if (!Hash::check($request->input('user_password'), $user->user_password)) {
+            return back()->withErrors([
+                'credentials' => 'Invalid email or password.'
+            ]);
+        }
+
+        // Log in the user manually
+        Auth::login($user);
+
+        // Get the role title via relationship
+        $roleTitle = $user->role->role_title ?? null;
+
+        switch ($roleTitle) {
+            case 'Admin':
+                return redirect()->intended('/systemAdmin/dashboard');
+            case 'DKS Staff':
+                return redirect()->intended('/DKSstaff/dashboard');
+            case 'Service Engineer':
+                return redirect()->intended('/serviceEngineer/dashboard');
+            default:
+                Auth::logout();
+                return back()->withErrors(['credentials' => 'Role not recognized.']);
         }
     }
 
-    // Logout method
-    public function logout()
+    public function logout(Request $request)
     {
         Auth::logout();
-        return redirect()->route("login");
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/login');
     }
+
 }

@@ -1,0 +1,167 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 5px 20px;
+    border-bottom: 1px solid #ccc;
+}
+.header .menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+body .home-section {
+    padding-left: 0px;
+}
+
+body .home-section .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* Style the table itself */
+#casesTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+}
+
+#casesTable thead {
+    background-color: #343a40 !important;
+    color: white !important;
+}
+
+
+
+/* Table rows */
+#casesTable tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#casesTable tbody tr:hover {
+    background-color: #e0f7fa;
+}
+
+/* Cell padding and border */
+#casesTable th,
+#casesTable td {
+    padding: 12px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #dee2e6;
+    font-size: 0.5rem;
+}
+
+/* Action buttons */
+#casesTable a.btn-sm {
+    margin: 0 2px;
+}
+
+#casesTable td i {
+    cursor: pointer;
+    color: #007bff;
+}
+/* Badge styling (optional override) */
+.badge {
+    padding: 0.4em 0.7em;
+    font-size: 0.8rem;
+    border-radius: 0.4rem;
+    font-weight: 500;
+}
+
+/* Layout and Spacing */
+.home-section {
+    padding: 20px;
+}
+
+.home-section h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .home-section {
+        margin-left: 0;
+    }
+
+    .container {
+        margin-top: 20px;
+    }
+
+
+    .table th, .table td {
+        font-size: 12px;
+    }
+
+}
+
+/* Notification Styling */
+.home-section .notification {
+    position: fixed;
+    bottom: 5%;
+    left: 79%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 500px;
+    z-index: 1050;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s, fadeOut 0.5s 5s forwards; /* Adding forwards to preserve the final state */
+    visibility: visible; /* Make sure it's initially visible */
+}
+
+/* Success Notification */
+.home-section .alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* Error Notification */
+.home-section .alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.home-section .notification .btn-close {
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Fade in/out animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) translateX(-50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) translateX(-50%);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0) translateX(-50%);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px) translateX(-50%);
+        visibility: hidden; /* Ensures the element is hidden after the fade out */
+    }
+}
+
+

@@ -1,0 +1,220 @@
+/* General Box Model Adjustments */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Logo */
+.logo {
+    position: absolute;
+    top: 20px;  /* Adjust based on your preference */
+    left: 20px;  /* Adjust to position it on the left side */
+    width: 250px;  /* Adjust logo size */
+    height: auto;
+}
+
+/* Titles */
+.obe1-title, .obe-title {
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+}
+
+.obe1-title {
+    font-size: 30px;
+    color: #000000;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 20px;
+}
+
+.obe-title {
+    font-size: 20px;
+    color: #575757;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 60px;
+}
+
+/* Form Controls */
+label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form .form-control {
+    align-items: center;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    height: 40px;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    font-size: 12px;
+}
+
+form .form-control:focus {
+    outline: none;
+    border-color: #5d9ff0;
+    box-shadow: 0 0 10px rgba(240, 138, 93, 0.3);
+}
+
+/* Buttons */
+.container form .btn-primary {
+    background: #18bc39;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    width: 10%;
+    transition: background 0.3s;
+}
+
+form .btn-primary:hover {
+    background: #12982d;
+}
+
+/* Form Container */
+body .container {
+    background: rgba(255, 255, 255, 0.782);
+    border-radius: 5px;
+    box-shadow: 0 10px 30px rgb(0, 0, 0);
+    width: 40%;
+    padding: 30px;
+    text-align: center;
+    margin-top: 200px;
+    margin-bottom: 100px;
+
+}
+
+/* Page Background */
+body {
+    background: url('../images/adminBG 1.png') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Headline */
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+
+/* Social Buttons */
+.social-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.social-buttons button {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    width: 48%;
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+}
+
+.social-buttons button:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Remember/Forgot Password Section */
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.remember-forgot a {
+    color: #f08a5d;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+/* Toastr Notification Styling */
+#toast-container > .toast {
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    padding: 15px !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+#toast-container > .toast-success {
+    background-color: #d4edda !important;
+    color: #155724 !important;
+}
+
+#toast-container > .toast-error {
+    background-color: #f8d7da !important;
+    color: #721c24 !important;
+}
+
+#toast-container > .toast-info {
+    background-color: #d1ecf1 !important;
+    color: #0c5460 !important;
+}
+
+#toast-container > .toast-warning {
+    background-color: #fff3cd !important;
+    color: #856404 !important;
+}
+
+
+form p {
+    margin-top: 20px;
+}
+
+/* Adjustments for small screens */
+@media (max-width: 768px) {
+    .container {
+        width: 80%;
+    }
+
+    .logo {
+        width: 200px;
+    }
+
+    .social-buttons button {
+        width: 100%;
+    }
+}
+
+/* Adjustments for extra small screens */
+@media (max-width: 576px) {
+    .container {
+        width: 90%;
+    }
+
+    .logo {
+        width: 150px;
+    }
+}
+
+

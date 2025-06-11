@@ -2,66 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Job Application</title>
-    <link rel="stylesheet" href="{{ asset('css/userLogin.css') }}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Login - DKS_CRMS</title>
+    <link rel="icon" type="image/png" href="{{ asset('images/DKS_Logo_no.bg.png') }}">
+    <link rel="icon" href="data:,">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 </head>
 
-<!-- "OBE System" Title Above the Login Container -->
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="card shadow">
+                    <div class="card-header">
+                        <h4>CRMS Login</h4>
+                    </div>
+                    <div class="card-body">
+                        @if (session('error'))
+                            <div class="alert alert-danger">{{ session('error') }}</div>
+                        @endif
 
-<body>
-    <!-- Logo -->
-    <img src="{{ asset('images/unissalogo.png') }}" alt="Logo" class="logo">
+                    <form id="login-form" action="{{ route('auth') }}" method="post">
+                        @csrf
+                        <div class="mb-3">
+                            <label for="user_email" class="form-label">Email</label>
+                            <input type="email" name="user_email" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="user_password" class="form-label">Password</label>
+                            <input type="password" name="user_password" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                    </form>
 
-
-    <!-- OBE Titles -->
-    <div class="obe1-title">
-        Human Resource e-Recruitment System
-    </div>
-    <div class="obe-title">
-        Human Resource Department
-    </div>
-
-    <!-- Login Form Container -->
-    <div class="container">
-        <h1>Login</h1>
-        <form action="{{ url('login') }}" method="POST">
-            @csrf
-
-            <label>Username</label>
-            <div><input type="text" class="form-control" id="username" name="username" placeholder="Username" required></div>
-
-            <label>Password</label>
-            <div><input type="password" class="form-control" id="password" name="password" placeholder="Password" required></div>
-
-            <button type="submit" class="btn-primary">Login</button>
-
-            <!-- Job Seeker Login Link -->
-            <div class="job-seeker-login">
-                <p>Are you a Job Seeker? <a href="{{ route('candidate.login') }}">Login here</a></p>
+                    </div>
+                    <div class="card-footer text-muted text-center">
+                        &copy; {{ date('Y') }} Drones Kaki Sabah
+                    </div>
+                </div>
             </div>
-
-            <p><a href="{{ route('frontpage.frontpage') }}">Office of Human Resources</a></p>
-
-        </form>
-
-        @if ($errors->has('credentials'))
-        <div class="alert alert-danger mt-4">
-            {{ $errors->first('credentials') }}
         </div>
-    @endif
     </div>
-
-    @if(session('error'))
-    <div class="alert alert-danger">
-        <strong>Error!</strong> {{ session('error') }}
-    </div>
-@endif
-
-
-</div>
 </body>
 </html>

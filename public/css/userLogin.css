@@ -1,240 +1,187 @@
+/* General Box Model Adjustments */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
 
-    label {
-        display: block; /* Makes the label take up the full width */
-        text-align: left; /* Aligns the text to the left */
-        margin-bottom: 5px; /* Adds space between the label and input field */
-        font-size: 14px; /* Adjust font size for readability */
-        font-weight: bold; /* Makes the text bold */
-        color: #333; /* Optional: Sets the label color */
-        width: 80%; /* Matches the input width */
-        margin-left: auto; /* Centers the label with input */
-        margin-right: auto; /* Centers the label with input */
-    }
+/* Logo */
+.logo {
+    position: absolute;
+    top: 20px;  /* Adjust based on your preference */
+    left: 20px;  /* Adjust to position it on the left side */
+    width: 250px;  /* Adjust logo size */
+    height: auto;
+}
 
-    .form-control {
-        width: 80%; /* Matches the width of the "Sign In" button */
-        border: 1px solid #ccc;
-        border-radius: 25px;
-        height: 45px;
-        padding: 10px 15px;
-        margin-bottom: 20px; /* Adds consistent spacing between input fields */
-    }
+/* Titles */
+.obe1-title, .obe-title {
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+}
 
-    .btn-primary {
-        background: #f08a5d;
-        border: none;
-        border-radius: 25px;
-        padding: 12px;
-        color: white;
-        font-size: 16px;
-        cursor: pointer;
-        width: 100%; /* Keeps it the same width as the input fields */
-        transition: background 0.3s;
-    }
+.obe1-title {
+    font-size: 30px;
+    color: #000000;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 20px;
+}
 
-    .logo {
-        position: absolute;
-        top: 20px;  /* Adjust based on your preference */
-        left: 20px;  /* Adjust to position it on the left side */
-        width: 250px;  /* Adjust logo size */
-        height: auto;
-    }
+.obe-title {
+    font-size: 20px;
+    color: #575757;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 60px;
+}
 
+/* Form Controls */
+label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-    .obe1-title {
-        font-size: 40px;  /* Larger font size */
-        text-align: center;
-        font-weight: bold;
-        color: #000000;
-        margin-bottom: 20px;  /* Reduced margin to keep it closer to the next title */
-        position: absolute;
-        top: 20px;  /* Positions the title a little further up */
-        width: 100%;
-    }
-
-    .obe-title {
-        font-size: 25px;  /* Smaller font size */
-        text-align: center;
-        font-weight: bold;
-        color: #575757;
-        margin-bottom: 20px;
-        position: absolute;
-        top: 80px;  /* Adjusted to ensure it's placed below the .obe1-title */
-        width: 100%;
-    }
-
-    .alert-danger {
-        font-size: 40px;
-        text-align: center;
-        font-weight: bold;
-        color:#ff4f4f;
-        margin-bottom: 20px;
-        position: absolute;
-        bottom: 80px;
-        width: 100%;
-
-    }
-
-
-
-    body {
-        background: url('../images/HRimage3.jpeg') no-repeat center center fixed;
-        background-size: cover;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin:0;
-    }
-
-    .container {
-        background: rgba(255, 255, 255, 0.605);
-        border-radius: 15px;
-        box-shadow: 0 10px 30px rgb(0, 0, 0);
-        width: 100px;
-        padding: 30px;
-        text-align: center;
-        margin-top: 100px;
-        margin-right: -350px;
-    }
-
-
-
-    h1 {
-        font-size: 28px;
-        font-weight: bold; /* Makes the text bold */
-        color: #333;
-        margin-bottom: 20px;
-        margin-top: 5px;
-    }
-
-    .form-control {
-        border: 1px solid #ccc;
-        border-radius: 25px;
-        height: 45px;
-        padding: 10px 15px;
-        margin-bottom: 15px;
-    }
-
-    .form-control:focus {
-        outline: none;
-        border-color: #f08a5d;
-        box-shadow: 0 0 10px rgba(240, 138, 93, 0.3);
-    }
-
-    .btn-primary {
-        background: #0a8523;
-        border: none;
-        border-radius: 25px;
-        padding: 12px;
-        color: rgb(255, 255, 255);
-        font-size: 16px;
-        cursor: pointer;
-        width: 80%; /* Matches input field width */
-        margin-left: auto; /* Centers the button horizontally */
-        margin-right: auto; /* Centers the button horizontally */
-        display: block; /* Ensures it takes up the full available space horizontally */
-        transition: background 0.3s;
-    }
-
-    .btn-primary:hover {
-        background: #12982d;
-    }
-
-    .social-buttons {
-        display: flex;
-        justify-content: space-around;
-        margin-top: 20px;
-    }
-
-    .social-buttons button {
-        background: #fff;
-        border: 1px solid #ddd;
-        border-radius: 25px;
-        width: 48%;
-        padding: 10px;
-        font-size: 14px;
-        cursor: pointer;
-        transition: box-shadow 0.3s;
-    }
-
-    .social-buttons button:hover {
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .remember-forgot {
-        display: flex;
-        justify-content: space-between;
-        font-size: 14px;
-        margin-top: 10px;
-    }
-
-    .remember-forgot a {
-        color: #f08a5d;
-        text-decoration: none;
-    }
-
-    .remember-forgot a:hover {
-        text-decoration: underline;
-    }
-/* Notification Styling */
-.home-section .notification {
-    position: fixed;
-    bottom: 5%;
-    left: 79%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 500px;
-    z-index: 1050;
-    padding: 15px;
-    border-radius: 8px;
-    display: flex;
+form .form-control {
     align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 0.5s, fadeOut 0.5s 5s forwards; /* Adding forwards to preserve the final state */
-    visibility: visible; /* Make sure it's initially visible */
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    height: 40px;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    font-size: 12px;
 }
 
-/* Success Notification */
-.home-section .alert-success {
-    background-color: #d4edda;
-    color: #155724;
+form .form-control:focus {
+    outline: none;
+    border-color: #5d9ff0;
+    box-shadow: 0 0 10px rgba(240, 138, 93, 0.3);
 }
 
-/* Error Notification */
-.home-section .alert-danger {
-    background-color: #f8d7da;
-    color: #721c24;
-}
-
-.home-section .notification .btn-close {
+/* Buttons */
+.container form .btn-primary {
+    background: #18bc39;
     border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    width: 10%;
+    transition: background 0.3s;
+}
+
+form .btn-primary:hover {
+    background: #12982d;
+}
+
+/* Form Container */
+body .container {
+    background: rgba(255, 255, 255, 0.782);
+    border-radius: 5px;
+    box-shadow: 0 10px 30px rgb(0, 0, 0);
+    width: 40%;
+    padding: 30px;
+    text-align: center;
+    margin-top: 200px;
+    margin-bottom: 100px;
+
+}
+
+/* Page Background */
+body {
+    background: url('../images/unissa1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Headline */
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+
+/* Social Buttons */
+.social-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.social-buttons button {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    width: 48%;
+    padding: 10px;
     font-size: 14px;
     cursor: pointer;
+    transition: box-shadow 0.3s;
 }
 
-/* Fade in/out animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-20px) translateX(-50%);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) translateX(-50%);
-    }
+.social-buttons button:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-        transform: translateY(0) translateX(-50%);
-    }
-    to {
-        opacity: 0;
-        transform: translateY(-20px) translateX(-50%);
-        visibility: hidden; /* Ensures the element is hidden after the fade out */
-    }
+/* Remember/Forgot Password Section */
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.remember-forgot a {
+    color: #f08a5d;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+/* Toastr Notification Styling */
+#toast-container > .toast {
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    padding: 15px !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+#toast-container > .toast-success {
+    background-color: #d4edda !important;
+    color: #155724 !important;
+}
+
+#toast-container > .toast-error {
+    background-color: #f8d7da !important;
+    color: #721c24 !important;
+}
+
+#toast-container > .toast-info {
+    background-color: #d1ecf1 !important;
+    color: #0c5460 !important;
+}
+
+#toast-container > .toast-warning {
+    background-color: #fff3cd !important;
+    color: #856404 !important;
 }
